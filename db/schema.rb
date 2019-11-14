@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -27,6 +26,7 @@ ActiveRecord::Schema.define(version: 20150516200811) do
     t.datetime "updated_at", null: false
     t.datetime "date"
     t.integer  "gate"
+    t.index ["flight_id"], name: "index_arrivals_on_flight_id"
   end
 
   add_index "arrivals", ["flight_id"], name: "index_arrivals_on_flight_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20150516200811) do
     t.datetime "updated_at", null: false
     t.datetime "date"
     t.integer  "gate"
+    t.index ["flight_id"], name: "index_departures_on_flight_id"
   end
 
   add_index "departures", ["flight_id"], name: "index_departures_on_flight_id"
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150516200811) do
     t.string   "number",     limit: 10
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.index ["airline_id"], name: "index_flights_on_airline_id"
   end
 
   add_index "flights", ["airline_id"], name: "index_flights_on_airline_id"
